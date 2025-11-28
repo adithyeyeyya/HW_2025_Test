@@ -11,12 +11,8 @@ public class ConfigLoader : MonoBehaviour {
     }
 
     void LoadConfig() {
-        // Construct the path
         string path = Path.Combine(Application.streamingAssetsPath, "doofus_diary.json");
-        
-        // DEBUG: Print exactly where we are looking
         Debug.Log("LOOKING FOR JSON HERE: " + path);
-
         if (File.Exists(path)) {
             string json = File.ReadAllText(path);
             config = JsonUtility.FromJson<GameConfig>(json);
