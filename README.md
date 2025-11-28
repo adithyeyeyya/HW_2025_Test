@@ -3,6 +3,7 @@
 **Assignment Submission for Hitwicket Game Developer Role (VIT 2026)**
 
 This project is a 3D procedural platformer built in **Unity 6**. The player controls "Doofus," a character who must navigate an endless path of disappearing platforms ("Pulpits") to achieve the highest score.
+Link to gameplay: https://drive.google.com/file/d/1zybhDNiOSF6Zyce5agqxEWgnG7e4sCb7/view?usp=sharing
 
 ## 🎮 Gameplay Overview
 * **Goal:** Survive as long as possible by jumping onto new Pulpits before the current one self-destructs.
