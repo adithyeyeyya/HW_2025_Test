@@ -9,8 +9,6 @@ public class GameManager : MonoBehaviour
     [Header("UI References")]
     public GameObject startPanel;
     public GameObject gameOverPanel;
-    
-    // Reference to the spawner to turn it on manually
     public PulpitSpawner spawner; 
 
     void Awake()
@@ -20,9 +18,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        // Pause everything at the start
         isGameActive = false;
-        Time.timeScale = 0; // Freezes physics and time
+        Time.timeScale = 0; 
         
         if(startPanel != null) startPanel.SetActive(true);
         if(gameOverPanel != null) gameOverPanel.SetActive(false);
@@ -31,24 +28,23 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         isGameActive = true;
-        Time.timeScale = 1; // Unfreeze time
+        Time.timeScale = 1;
         startPanel.SetActive(false);
         
-        // Tell spawner to start spawning now
+        
         if(spawner != null) spawner.StartSpawning();
     }
 
     public void GameOver()
     {
         isGameActive = false;
-        Time.timeScale = 0; // Freeze the game
+        Time.timeScale = 0; 
         if(gameOverPanel != null) gameOverPanel.SetActive(true);
     }
 
     public void RestartGame()
     {
-        // Reload the current scene
-        Time.timeScale = 1; // Reset time before reloading
+        Time.timeScale = 1; 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
