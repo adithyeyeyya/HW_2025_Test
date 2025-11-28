@@ -1,15 +1,14 @@
 using UnityEngine;
-using TMPro; // Needed for TextMeshPro
+using TMPro; 
 
 public class ScoreManager : MonoBehaviour
 {
-    public static ScoreManager Instance; // Singleton to make it easy to access from other scripts
-    public TextMeshProUGUI scoreText; // Reference to the UI Text component
+    public static ScoreManager Instance; 
+    public TextMeshProUGUI scoreText;
     private int score = 0;
 
     void Awake()
     {
-        // This ensures there is only one ScoreManager and we can access it anywhere
         if (Instance == null)
         {
             Instance = this;
@@ -18,7 +17,7 @@ public class ScoreManager : MonoBehaviour
 
     void Start()
     {
-        UpdateScoreUI(); // Initialize text at 0
+        UpdateScoreUI(); 
     }
 
     public void AddScore()
