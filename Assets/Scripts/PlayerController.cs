@@ -7,17 +7,13 @@ public class PlayerController : MonoBehaviour {
 
     void Start() {
         rb = GetComponent<Rigidbody>();
-        // Read speed from JSON or default to 5
         if (ConfigLoader.Instance != null && ConfigLoader.Instance.config != null)
              speed = ConfigLoader.Instance.config.player_data.speed;
         else speed = 5f;
     }
 
     void Update() {
-        // STOP if game is not active
         if (GameManager.Instance == null || !GameManager.Instance.isGameActive) return;
-
-        // --- MOVEMENT ---
         float h = 0;
         float v = 0;
 
@@ -31,9 +27,8 @@ public class PlayerController : MonoBehaviour {
         Vector3 movement = new Vector3(h, 0, v) * speed;
         rb.linearVelocity = new Vector3(movement.x, rb.linearVelocity.y, movement.z);
 
-        // --- DEATH CHECK ---
         if (transform.position.y < -2) {
-            GameManager.Instance.GameOver(); // Call the UI Manager instead of reloading
+            GameManager.Instance.GameOver(); 
         }
     }
 }
