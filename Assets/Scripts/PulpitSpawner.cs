@@ -6,11 +6,10 @@ public class PulpitSpawner : MonoBehaviour
     public GameObject pulpitPrefab;
     private Vector3 nextSpawnPos = Vector3.zero;
 
-    // We removed Start() so it doesn't run automatically
     
     public void StartSpawning()
     {
-        // Spawn the first one immediately when Button is clicked
+
         SpawnPulpit(Vector3.zero); 
         StartCoroutine(SpawnRoutine());
     }
@@ -19,9 +18,8 @@ public class PulpitSpawner : MonoBehaviour
     {
         while (GameManager.Instance.isGameActive)
         {
-            float spawnTime = 2.5f; // Default safety value
-            
-            // Try to read JSON, use default if fails
+            float spawnTime = 2.5f; 
+
             if (ConfigLoader.Instance != null && ConfigLoader.Instance.config != null)
             {
                 spawnTime = ConfigLoader.Instance.config.pulpit_data.pulpit_spawn_time;
